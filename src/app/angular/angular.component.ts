@@ -8,8 +8,13 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
 })
 export class AngularComponent implements OnInit {
   
-  fetchUrl = "https://dog.ceo/api/breeds/image/random";
-  imgdata:any;
+  // fetchUrl = "https://dog.ceo/api/breeds/image/random";
+  fetchUrl = "assets/userdata.json";
+  items= Array();
+  name = 'Angular';
+  page = 1;
+  pageSize =5;
+  
 
   constructor(private http : HttpClient) { }
 
@@ -17,8 +22,23 @@ export class AngularComponent implements OnInit {
     this.fetchData();
   }
 
+
   fetchData(){
-    return this.http.get(this.fetchUrl).subscribe(data => this.imgdata = data);
+    console.log(this.fetchUrl)
+    return this.http.get<any>(this.fetchUrl).subscribe(
+      data =>{
+        console.log(data);
+        for(let i = 0; i <data.length; i++){
+          console.log("i : "+ data[i].firstname);
+          this.items.push(data[i]);
+       }
+        // this.items = data
+        console.log("item : "+ this.items[0].lastname);
+        console.log("length : "+this.items.length);
+
+      } );
+    
+    
   }
 
 }

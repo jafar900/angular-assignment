@@ -7,6 +7,7 @@ import { MyAppComponent } from './MyComponent/my-app/my-app.component';
 import { AwsComponent } from './aws/aws.component';
 import { AngularComponent } from './angular/angular.component';
 import {HttpClientModule} from '@angular/common/http';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {HttpClientModule} from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
