@@ -1,14 +1,14 @@
 
-<div style="margin-left:30%;margin-top: 20px;">
+<div  style="margin-left:30%;margin-top: 20px;">
   <!-- <div *ngFor="let item of items | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">{{item.firstname}}</div> -->
-  <div class="card mb-3" *ngFor="let item of items | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize" style="max-width: 540px;">
+  <div @fade class="card mb-3" *ngFor="let item of items | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize" style="max-width: 540px;">
     <div class="row no-gutters">
       <div class="col-md-4">
         <img class="card-img" src={{item.image}}  alt="img loading">
       </div>
-      <div class="col-md-8">
+      <div  class="col-md-8">
         <div class="card-body">
-          <h5 class="card-title nav-link" routerLink="../aws">{{item.id}}</h5>
+          <h5 class="card-title nav-link" routerLink="../aws" [queryParams]="{ blogId: item.id }">{{item.id}}</h5>
           <p class="card-text">{{item.firstname}} {{item.lastname}}</p>
           <p class="card-text"><small class="text-muted">{{item.email}}</small></p>
         </div>

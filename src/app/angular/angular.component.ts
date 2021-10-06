@@ -1,10 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
+import { animate, style, transition, trigger } from '@angular/animations';
 
 @Component({
   selector: 'app-angular',
   templateUrl: './angular.component.html',
-  styleUrls: ['./angular.component.css']
+  styleUrls: ['./angular.component.css'],
+  animations:[
+    trigger('fade',[
+    
+      transition('void=>*',[
+        style({backgroundColor:'black', opacity:0}),
+        animate(5000)
+      ])
+    ])
+  ]
 })
 export class AngularComponent implements OnInit {
   
